@@ -27,23 +27,23 @@ request.onload = function() {
 
       // Create an h1 and set the text content to the film's title
       const h1 = document.createElement('h1');
-      h1.textContent = movie.title;
+      h1.textContent = `${movie.title} (${movie.release_date})`;
 
       // Create a p and set the text content to the film's description
       const p = document.createElement('p')
       movie.description = movie.description.substring(0, 300) // Limit to 300 chars
       p.textContent = `${movie.description}...` // End with an ellipses
 
+      const director = document.createElement('p');
+      director.textContent = `Director: ${movie.director}`;
+
       // Append the cards to the container element
-      container.appendChild(card)
+      container.appendChild(card);
 
       // Each card will contain an h1 and a p
-      card.appendChild(h1)
-      card.appendChild(p)
-
-
-      console.log(movie.title);
-      console.log(movie.description);
+      card.appendChild(h1);
+      card.appendChild(p);
+      card.appendChild(director);
     });
   } else {
     console.log('error')
